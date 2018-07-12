@@ -1,0 +1,16 @@
+{
+  "tracking_mode": 0,
+  "speed_limit_alarm": true,
+  "speed_limit_alarm_value": 120,
+  "low_battery_alarm": true,
+  "moving_start": true,
+  "moving_stop": false,
+  "shaking_alarm": false,
+  "right_key": true,
+  "left_key": true,
+  "sos_key": true,
+  "sos_alarm_sound": false,
+  "device_beep_sound": false,
+  "right_key_message": "Right key pressed",
+  "left_key_message": "Left key pressed"
+}

@@ -1,0 +1,23 @@
+{
+  "section": "plans",
+  "item": {
+    "name": "Denis test plan",
+    "type": "Prepaid",
+    "months": "12",
+    "stripe_id": "2015",
+    "caption": "Denis test caption",
+    "comments": "Denis test comment",
+    "created": "",
+    "merchant_id": "Denis merch",
+    "public_key": "publickey",
+    "private_key": "privatetey",
+    "cse_key": "csekey",
+    "max_sms_per_month": "22",
+    "amount": "11",
+    "skrill_amount": "12",
+    "payment_cycle": "Month",
+    "paypal_trial_cycles": "",
+    "paypal_trial_amount": "",
+    "currency": "EUR"
+  }
+}

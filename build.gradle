@@ -1,0 +1,63 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+
+
+jar {
+    baseName = 'Selenium Demo'
+    version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+
+
+}
+
+
+dependencies {
+    compile 'org.seleniumhq.selenium:selenium-java:3.6.0'
+    compile group: 'org.testng', name: 'testng', version: '6.9.10'
+
+    compile 'org.json:json:20141113'
+    compile 'org.skyscreamer:jsonassert:1.2.3'
+    compile 'mysql:mysql-connector-java:5.1.35'
+
+    compile 'org.apache.pdfbox:pdfbox:1.5.0'
+    compile 'javax.activation:activation:1.1'
+    compile 'javax.mail:mail:1.4.7'
+    compile 'org.springframework:spring-context:5.0.3.RELEASE'
+}
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
+}
+
+// to run specific suite: gradlew clean test -Plogin -Pinvestigation (deprecated)
+// -PsomeProperty for  if (project.hasProperty('someProperty')
+// to run single test: gradlew clean test --tests *InvestigationTests.CYBR_9237_paste_several_elements_to_search_box_Test
+// to run all investigation tests: gradlew clean test --tests *InvestigationTests*
+test {
+    useTestNG() {
+
+        //setParallel "methods"
+        //setThreadCount 5
+
+        //if (project.hasProperty('login')) { suites './src/test/Suites/loginTests.xml' }
+
+        //if (project.hasProperty('investigation')) { suites './src/test/Suites/investigation.xml' }
+
+        // run specific test
+        //gradle test --tests *IntegTest.singleMethod
+    }
+    ext.workingDirectory = 'build/'
+}

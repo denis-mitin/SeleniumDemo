@@ -1,0 +1,14 @@
+{
+  "msg_id": 1,
+  "description": "Start Tracking Mode",
+  "Tracking Channel": "USSD",
+  "Tracking UDP Ip": "54.191.240.102",
+  "Tracking UDP Port": 9999,
+  "Sample Time (mins)": 15,
+  "Report Time (mins)": 1,
+  "Location Accuracy": "Low",
+  "Send Device ID": "On",
+  "Delta Compression": "Off",
+  "raw": "000000000011011010111111111100000110011000100111000011110000111100000001000000000000000100000000",
+  "Extra Bytes": "[]"
+}
