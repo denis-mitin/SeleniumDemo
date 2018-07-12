@@ -12,3 +12,9 @@ For example: -Denv=prod browser=CHROME
 
 or
 gradlew clean test --tests *CYBR_9237*
+
+cd C:\tmp\CyberSeleniumPoc
+
+git pull https://github.com/denis-mitin/SeleniumDemo.git
+
+gradle clean test --tests *SearchTests*
