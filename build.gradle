@@ -35,6 +35,9 @@ dependencies {
     compile 'javax.activation:activation:1.1'
     compile 'javax.mail:mail:1.4.7'
     compile 'org.springframework:spring-context:5.0.3.RELEASE'
+    compile 'org.testng:testng:6.9.6'
+    compile 'org.testng:testng:6.9.6'
+    compile 'org.testng:testng:6.9.6'
 }
 
 
