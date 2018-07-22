@@ -30,7 +30,6 @@ public class TestBase {
     public void login(String user) {
 
         System.out.println("Login as " + user + " started");
-        
 
         LoginPage.navigate();
 

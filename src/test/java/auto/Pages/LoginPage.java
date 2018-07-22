@@ -70,18 +70,13 @@ public class LoginPage extends Page {
     }
 
 
-    // The login page allows the user to type their username into the username field
     public LoginPage typeUsername(String username) {
-        // This is the only place that "knows" how to enter a username
         loginEmailText.sendKeys(username);
-
-        // Return the current page object as this action doesn't navigate to a page represented by another PageObject
         return this;
     }
 
-    // The login page allows the user to type their password into the password field
     public LoginPage typePassword(String password) {
-        // This is the only place that "knows" how to enter a password
+
         passwordText.sendKeys(password);
         return this;
     }

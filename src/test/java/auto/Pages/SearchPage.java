@@ -36,7 +36,7 @@ public class SearchPage extends Page {
     @FindBy(xpath = "//button[@class='icon-search2 search-go--kpr3Z']")
     WebElement startSearchButton;
 
-    @FindBy(xpath = "//div[@class='more--dOHrW']']")
+    @FindBy(xpath = "//div[@class='more--dOHrW']")
     WebElement moreResults;
 
     @FindBy(id="ElasticSearch")
@@ -52,9 +52,7 @@ public class SearchPage extends Page {
 
     public SearchPage navigate() {
 
-
         driver.get(searchPageURL);
-
 
         // Check that we're on the right page.
         Assert.assertEquals(searchPageURL, driver.getCurrentUrl());
