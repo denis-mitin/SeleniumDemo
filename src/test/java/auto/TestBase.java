@@ -3,6 +3,7 @@ package auto;
 import auto.Config.Browser;
 import auto.Config.Config;
 import auto.Pages.LoginPage;
+import auto.Pages.SearchPage;
 import org.json.JSONObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +14,10 @@ import org.testng.Assert;
 
 public class TestBase {
 
+    LoginPage LoginPage = new LoginPage(driver);
 
+    SearchPage SearchPage = new SearchPage(driver);
+    
     //Get config singletone containing siteURL, users;
     public static Config conf = Config.getInstance();
 
@@ -26,13 +30,13 @@ public class TestBase {
     public void login(String user) {
 
         System.out.println("Login as " + user + " started");
-        LoginPage lp = new LoginPage(driver);
+        
 
-        lp.navigate();
+        LoginPage.navigate();
 
         JSONObject u = users.getJSONObject(user);
 
-        lp.submitLogin(u.getString("username"),u.getString("password") );
+        LoginPage.submitLogin(u.getString("username"),u.getString("password") );
 
         WebDriverWait wait =  new WebDriverWait(driver, 60);
 

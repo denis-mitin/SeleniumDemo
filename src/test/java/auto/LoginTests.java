@@ -30,22 +30,20 @@ public class LoginTests extends TestBase {
     @AfterClass
     public static void afterAll() {
         out.println("Closing browser");
-        driver.quit();
+        //driver.quit();
     }
 
     @Test
     public void login_invalid_user_and_pass_Test() {
 
         out.println("login_with_wrong_user_and_pass test started");
+        
+        LoginPage.navigate();
 
-        LoginPage lp = new LoginPage(driver);
+        LoginPage.typeUsername("admin");
+        LoginPage.typePassword("dfdsf");
 
-        lp.navigate();
-
-        lp.typeUsername("admin");
-        lp.typePassword("dfdsf");
-
-        lp.submitLoginExpectingFailure();
+        LoginPage.submitLoginExpectingFailure();
 
         out.println("login_with_wrong_user_and_pass test passed");
 

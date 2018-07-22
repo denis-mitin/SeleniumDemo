@@ -1,8 +1,0 @@
-{
-  "speed_limit_alarm": false,
-  "low_battery_alarm": false,
-  "moving_start": false,
-  "right_key": false,
-  "left_key": false,
-  "sos_key": false
-}

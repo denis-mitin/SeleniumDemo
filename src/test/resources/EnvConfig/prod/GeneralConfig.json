@@ -4,28 +4,13 @@
   "users": {
     "user1": {
       "username": "denism@mailinator.com",
-      "password": "Q123456w",
-      "firstname":"Denis",
-      "lastname":"M"
+      "password": "123456",
+      "firstname": "Denis",
+      "lastname": "M"
     },
-    "filesearch": {
-      "username": "filesearch@cybereason.com",
-      "password": "changeme"
-    },
-    "l3ana": {
-      "username": "l3ana@mail.com",
-      "password": "changeme",
-      "permissions" : ["DashBoardPage","MalopInboxPage"]
-    },
-    "l1": {
-      "username": "l1@cybereason.com",
-      "password": "changeme",
-      "permissions" : ["DashBoardPage","MalopInboxPage"]
-    },
-    "l2": {
-      "username": "l2@cybereason.com",
-      "password": "changeme",
-      "permissions" : ["DashBoardPage","MalopInboxPage"]
+    "admin": {
+      "username": "admin@ja.com",
+      "password": "123456"
     }
   }
 }

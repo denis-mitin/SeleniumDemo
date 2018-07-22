@@ -16,8 +16,6 @@ import static java.lang.System.out;
 
 public class SearchTests extends TestBase {
 
-    SearchPage sp = new SearchPage(driver);
-
     @BeforeClass
     public static void initEnvironment() {
         // maximize browser
@@ -29,7 +27,7 @@ public class SearchTests extends TestBase {
     @AfterClass
     public static void afterAll() {
         out.println("Closing browser");
-        driver.quit();
+        //driver.quit();
     }
 
     @Test
@@ -37,9 +35,9 @@ public class SearchTests extends TestBase {
 
         out.println(" basic_search_Test started");
 
-        sp.navigate();
+        SearchPage.navigate();
 
-        int results = sp.submitSearch("diamond");
+        int results = SearchPage.submitSearch("diamond");
 
         out.println("Got " + results + " results");
 
@@ -52,17 +50,17 @@ public class SearchTests extends TestBase {
     @Test
     public void search_without_results_Test() {
 
-        out.println(" search_without_results_Test started");
+        out.println("search_without_results_Test started");
 
-        sp.navigate();
+        SearchPage.navigate();
 
-        int results = sp.submitSearch("fgdfggdfgdfg");
+        int results = SearchPage.submitSearch("fgdfggdfgdfg");
 
         out.println("Got " + results + " results");
 
         Assert.assertEquals(results, 0);
 
-        out.println(" search_without_results_Test passed");
+        out.println("search_without_results_Test passed");
 
     }
 }
