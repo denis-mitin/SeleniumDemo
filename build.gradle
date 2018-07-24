@@ -24,19 +24,12 @@ repositories {
 
 
 dependencies {
-    compile 'org.seleniumhq.selenium:selenium-java:3.6.0'
+    compile 'org.seleniumhq.selenium:selenium-java:3.11.0'
     compile group: 'org.testng', name: 'testng', version: '6.9.10'
 
     compile 'org.json:json:20141113'
     compile 'org.skyscreamer:jsonassert:1.2.3'
-    compile 'mysql:mysql-connector-java:5.1.35'
-
-    compile 'org.apache.pdfbox:pdfbox:1.5.0'
-    compile 'javax.activation:activation:1.1'
-    compile 'javax.mail:mail:1.4.7'
     compile 'org.springframework:spring-context:5.0.3.RELEASE'
-    compile 'org.testng:testng:6.9.6'
-    compile 'org.testng:testng:6.9.6'
     compile 'org.testng:testng:6.9.6'
 }
 
@@ -45,13 +38,14 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.4'
 }
 
+
 // to run specific suite: gradlew clean test -Plogin -Pinvestigation (deprecated)
 // -PsomeProperty for  if (project.hasProperty('someProperty')
 // to run single test: gradlew clean test --tests *InvestigationTests.CYBR_9237_paste_several_elements_to_search_box_Test
 // to run all investigation tests: gradlew clean test --tests *InvestigationTests*
 test {
     useTestNG() {
-
+        systemProperties = System.properties
         //setParallel "methods"
         //setThreadCount 5
 
@@ -63,4 +57,12 @@ test {
         //gradle test --tests *IntegTest.singleMethod
     }
     ext.workingDirectory = 'build/'
+}
+
+sourceSets{
+    test{
+        resources{
+            srcDir "resources"
+        }
+    }
 }

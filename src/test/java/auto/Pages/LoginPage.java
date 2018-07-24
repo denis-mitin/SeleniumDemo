@@ -18,12 +18,12 @@ public class LoginPage extends Page {
 
     WebDriverWait wait;
 
-    String loginPageURL = super.siteURL; //+ "login.html";
+    String loginPageURL = super.siteURL;
 
     final String wrongPassError = "Your Email and/or Password is incorrect";
 
 
-    @FindBy(xpath = "//span[@class='login-menu-text--18Mba']") //<span class="login-menu-text--18Mba">LOGIN</span>
+    @FindBy(xpath = "//span[@class='login-menu-text--18Mba']")
     WebElement loginLink;
 
     @FindBy(id="loginEmail")
@@ -70,15 +70,13 @@ public class LoginPage extends Page {
     }
 
 
-    public LoginPage typeUsername(String username) {
+    public void typeUsername(String username) {
         loginEmailText.sendKeys(username);
-        return this;
     }
 
-    public LoginPage typePassword(String password) {
+    public void typePassword(String password) {
 
         passwordText.sendKeys(password);
-        return this;
     }
 
     // The login page allows the user to submit the login form

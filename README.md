@@ -8,13 +8,20 @@ To open it at intelliJ do as following:
 4. Expand project tree, open Tests.java classes, select one of tests mehods, right click and run
 
 The project supports command line parameters for environment and browser.
-For example: -Denv=prod browser=FIREFOX
+For example: -Denv=dev browser=FIREFOX
 Default is Chrome
 
-cd C:\tmp\SeleniumDemo
+To rul all tests with default browser (Chrome) and default env (prod):
+
 git pull https://github.com/denis-mitin/SeleniumDemo.git
+cd C:\SeleniumDemo
+gradle clean test
 
-to rul all tests, type at command line: gradle clean test
 
-To run specific class or test case with gradle:
+Run on specific environment (dev) at Firefox:
+
+gradle clean test -Denv=dev -Dbrowser=FIREFOX
+
+
+Run specific class or test case with gradle:
 gradle clean test --tests *Search*

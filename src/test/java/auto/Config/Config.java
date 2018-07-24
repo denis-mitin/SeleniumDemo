@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Config {
 
     // set default value for environment
-    public static String ENVIRONMENT = "prod";//
+    public static String ENVIRONMENT = "prod";
     public JSONObject config;
 
     private static Config instance = null;
@@ -26,7 +26,7 @@ public class Config {
 
     private Config() {
 
-        // set environment -Denv=prod
+        // set environment -Denv=dev
         try {
             String env = System.getProperty("env");
 
@@ -48,11 +48,9 @@ public class Config {
 
         try {
             System.out.println("Read config file:");
-            //config = new JSONObject(readFile("/EnvConfig/" + ENVIRONMENT + "/GeneralConfig.json"));
 
-            config = new JSONObject(readFile("C:\\QA Soft\\JamesAllen\\src\\test\\resources\\EnvConfig\\prod\\GeneralConfig.json"));
-            //String dslash = System.getProperty("file.separator") + System.getProperty("file.separator");
-            //config.put("doubleSlash", dslash);
+            String path = "EnvConfig/" + ENVIRONMENT + "/GeneralConfig.json";
+            config = new JSONObject(readFile(path));
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -79,24 +77,8 @@ public class Config {
 
     public String readFile(String name) {
 
-        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
-        InputStream in =  classloader.getResourceAsStream(name);
-
-        InputStream input = getClass().getClassLoader().getResourceAsStream(name);
-        // BufferedReader reader= new BufferedReader(input);
-
-        //File file = new File(getClass().getClassLoader().getResource(name).getFile());
-
         File file = getFileOrResource(name);
 
-       /* BufferedReader reader=null;
-        try {
-            reader = new BufferedReader(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }*/
-
-       // BufferedReader reader = new BufferedReader(new InputStreamReader(input));
         Scanner scanner = null;
         try {
             scanner = new Scanner(file);
@@ -108,9 +90,6 @@ public class Config {
         String line;
 
             while (scanner.hasNextLine()) {
-               //out.append(line + System.lineSeparator());
-               // out.append(line + "\n");
-
                 line = scanner.nextLine();
                 out.append(line).append(System.lineSeparator());
             }

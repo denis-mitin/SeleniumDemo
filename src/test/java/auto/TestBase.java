@@ -41,13 +41,11 @@ public class TestBase {
 
         String path = "//div[@class='logged-in--3V7Y0']/a[1]";
 
-        //WebElement bage = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(path)));
         WebElement bage = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(path)));
 
         String first= u.getString("firstname");
         String last = u.getString("lastname");
 
-        //Assert.assertEquals( first + " " + last,  bage.getText());
         Assert.assertEquals( first + " " + last,  bage.getAttribute("text"));
 
         System.out.println("Login as " + user + " success");

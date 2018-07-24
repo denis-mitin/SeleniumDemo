@@ -24,7 +24,7 @@ public class Browser {
     //String value for browser version
     public static String browser;
 
-    public static Browser getInstance() {
+    public synchronized static Browser getInstance() {
         if (instance == null) {
             instance = new Browser();
         }
@@ -38,6 +38,7 @@ public class Browser {
             browser = System.getProperty("browser");
         } catch (Exception e) {
             //e.printStackTrace()
+            System.out.println("Browser not found at command line, using " + browser);
         }
 
         if (browser == null) {
@@ -57,8 +58,21 @@ public class Browser {
                 System.out.println("Starting browser " + browser);
 
                 switch (browser) {
-                    case "CHROME":
 
+
+                    case "IE":
+                        File file = new File("iexploredriver.exe");
+                        System.setProperty("webdriver.ie.driver", file.getAbsolutePath());
+                        driver = new InternetExplorerDriver();
+                        break;
+
+                    case "FIREFOX":
+                        System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
+                        driver = new FirefoxDriver();
+                        break;
+
+                    case "CHROME":
+                    default:
                         ChromeDriverService service = new ChromeDriverService.Builder()
                                 .usingDriverExecutable(new File("chromedriver.exe"))
                                 .usingAnyFreePort()
@@ -71,18 +85,8 @@ public class Browser {
                         options.setCapability("acceptIngisecureCerts", true);
                         options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
                         driver = new ChromeDriver(service, options);
-                        break;
 
-                    case "IE":
-                        File file = new File("C:/Selenium/iexploredriver.exe");
-                        System.setProperty("webdriver.ie.driver", file.getAbsolutePath());
-                        driver = new InternetExplorerDriver();
-                        break;
 
-                    case "FIREFOX":
-                    default:
-                        System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
-                        driver = new FirefoxDriver();
 
                 }
             } finally {
